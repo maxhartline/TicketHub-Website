@@ -7,18 +7,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
-<body>
+<body class="bg-color">
     <div class="container mt-5">
         <h1 class="text-center mb-4">Purchase Tickets</h1>
         <form id="ticketForm" class="needs-validation" novalidate>
-            <!-- Concert Selection -->
+            <!-- Concert selection -->
             <div class="mb-3">
                 <label for="concertId" class="form-label">Select Concert</label>
                 <select class="form-select" id="concertId" name="concertId" required>
                     <option value="" selected disabled>Select a concert</option>
-                    <option value="1">Concert 1</option>
-                    <option value="2">Concert 2</option>
-                    <option value="3">Concert 3</option>
+                    <option value="1">Charli XCX</option>
+                    <option value="2">Tyler the Creator</option>
+                    <option value="3">Pitbull</option>
+                    <option value="4">Lady Gaga</option>
+                    <option value="5">Shania Twain</option>
+                    <option value="6">Rina Sawayama</option>
                 </select>
                 <div class="invalid-feedback">Please select a concert.</div>
             </div>
@@ -40,32 +43,32 @@
             <!-- Phone -->
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone" required>
+                <input type="tel" class="form-control" id="phone" name="phone" minlength="10" maxlength="11" required>
                 <div class="invalid-feedback">Please enter a valid phone number.</div>
             </div>
 
-            <!-- Ticket Quantity -->
+            <!-- Quantity -->
             <div class="mb-3">
                 <label for="quantity" class="form-label">Number of Tickets</label>
                 <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="10" required>
                 <div class="invalid-feedback">Please enter a quantity between 1 and 10.</div>
             </div>
 
-            <!-- Credit Card -->
+            <!-- Credit card -->
             <div class="mb-3">
                 <label for="creditCard" class="form-label">Credit Card Number</label>
                 <input type="text" class="form-control" id="creditCard" name="creditCard" pattern="\d{15,16}" required>
                 <div class="invalid-feedback">Enter a valid credit card number (15-16 digits).</div>
             </div>
 
-            <!-- Expiration Date -->
+            <!-- Expiration date -->
             <div class="mb-3">
                 <label for="expiration" class="form-label">Expiration Date (MM/YY)</label>
                 <input type="text" class="form-control" id="expiration" name="expiration" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
                 <div class="invalid-feedback">Format must be MM/YY.</div>
             </div>
 
-            <!-- Security Code -->
+            <!-- Security code -->
             <div class="mb-3">
                 <label for="securityCode" class="form-label">Security Code (CVV)</label>
                 <input type="text" class="form-control" id="securityCode" name="securityCode" pattern="\d{3,4}" required>
@@ -93,7 +96,7 @@
                 <div class="invalid-feedback">Please enter your province (max 50 characters).</div>
             </div>
 
-            <!-- Postal Code -->
+            <!-- Postal code -->
             <div class="mb-3">
                 <label for="postalCode" class="form-label">Postal Code (A1A 1A1)</label>
                 <input type="text" class="form-control" id="postalCode" name="postalCode" pattern="^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ]\s?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$" required>
@@ -130,11 +133,11 @@
         
             // Create an object to hold the form data
             const formData = {
-                concertId: parseInt(document.getElementById('concertId').value),  // Ensure concertId is treated as a number
+                concertId: parseInt(document.getElementById('concertId').value), // Ensure concertId is treated as a number
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                quantity: parseInt(document.getElementById('quantity').value),  // Ensure quantity is treated as a number
+                quantity: parseInt(document.getElementById('quantity').value), // Ensure quantity is treated as a number
                 creditCard: document.getElementById('creditCard').value,
                 expiration: document.getElementById('expiration').value,
                 securityCode: document.getElementById('securityCode').value,
@@ -165,19 +168,19 @@
                 submitButton.textContent = 'Purchase';
                 
                 if (response.ok) {
-                    // Success case
-                    alert('Thank you! Your ticket purchase has been processed successfully.');
+                    // Success
+                    alert('Your ticket purchase has been processed successfully.');
                     ticketForm.reset();
                     ticketForm.classList.remove('was-validated');
                 } else {
-                    // Error case - display the error message from the API
+                    // Error
                     const errorData = await response.json();
-                    alert(`Error: ${errorData.message || errorData.title || 'Please check your information and try again.'}`);
+                    alert(`Error: ${errorData.message || errorData.title}`);
                 }
             } catch (error) {
                 // Network or other errors
-                console.error('Submission error:', error);
-                alert('Unable to connect to the server. Please check your connection and try again.');
+                console.error('Error:', error);
+                alert('Unable to connect to the server.');
             }
         });
     });
