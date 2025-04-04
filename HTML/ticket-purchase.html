@@ -148,11 +148,11 @@
             try {
                 // Show loading state
                 const submitButton = ticketForm.querySelector('button[type="submit"]');
-                submitButton.textContent = 'Processing';
+                submitButton.textContent = 'Processing...';
                 submitButton.disabled = true;
                 
                 // Send data to API
-                const response = await fetch('https://corsproxy.io/?https://nscc-0499018-tickethub-a7fhcachafevfmhz.canadacentral-01.azurewebsites.net/api/Purchase', {
+                const response = await fetch('https://nscc-0499018-tickethub-a7fhcachafevfmhz.canadacentral-01.azurewebsites.net/api/Purchase', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
