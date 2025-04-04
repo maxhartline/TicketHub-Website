@@ -17,35 +17,43 @@
         </div>
     </div>
 
-    <!-- Concert banner, photo, and title -->
-    <div class="container-fluid p-0 mt-0">
+    <div class="container-fluid p-0 position-relative">
+        <!-- Artist banner -->
         <img src="../Images/shania-twain-banner.png" class="img-fluid w-100" alt="Shania Twain banner">
-
-        <div class="position-relative">
-            <div class="position-absolute" style="top: -250px; left: 60px;">
-                <img src="../Images/shania-twain-concert.jpg" class="img-fluid" style="max-width: 300px;" alt="Shania Twain">
-            </div>
-            <div class="position-absolute text-white fw-bold" style="font-size: 3rem; top: -180px; left: 400px;">
-                Shania Twain Tickets
-            </div>
-    
-        <div class="container mt-4">
-            <!-- Event details -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Event Details</h5>
-                    <p class="card-text"><strong>Tour:</strong> Queen of Me Tour</p>
-                    <p class="card-text"><strong>Date:</strong> July 7, 2025</p>
-                    <p class="card-text"><strong>Time:</strong> 7:00 PM</p>
-                    <p class="card-text"><strong>City:</strong> Moose Jaw, SK</p>
-                    <p class="card-text"><strong>Venue:</strong> Moose Jaw Events Centre</p>
+        
+        <div class="position-absolute top-0 start-0 w-100 h-100">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <!-- Artist image -->
+                    <div class="col-5 col-md-4 col-lg-3 ps-2">
+                        <img src="../Images/shania-twain-concert.jpg" class="img-fluid" style="max-width: 100%;" alt="Shania Twain">
+                    </div>
+                    <!-- Artist title -->
+                    <div class="col-7 col-md-8 col-lg-9">
+                        <h1 class="text-white fw-bold display-4">Shania Twain Tickets</h1>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <div class="container mt-4">
+        <!-- Event details -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Event Details</h5>
+                <p class="card-text"><strong>Tour:</strong> Queen of Me Tour</p>
+                <p class="card-text"><strong>Date:</strong> July 7, 2025</p>
+                <p class="card-text"><strong>Time:</strong> 7:00 PM</p>
+                <p class="card-text"><strong>City:</strong> Moose Jaw, SK</p>
+                <p class="card-text"><strong>Venue:</strong> Moose Jaw Events Centre</p>
+            </div>
+        </div>
 
-            <!-- Buttons -->
-            <a href="../index.html" class="btn btn-secondary">Back to Home</a>
-            <a href="ticket-purchase.html" class="btn btn-secondary">Get Tickets</a>
-        </div>            
+        <!-- Buttons -->
+        <a href="../index.html" class="btn btn-secondary">Back to Home</a>
+        <a href="ticket-purchase.html" class="btn btn-secondary">Get Tickets</a>
+    </div>            
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
